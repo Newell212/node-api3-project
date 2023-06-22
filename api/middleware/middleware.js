@@ -41,8 +41,8 @@ function validateUser(req, res, next) {
 
 function validatePost(req, res, next) {
   const { text } = req.body
-  if(!text || !text.time()) {
-    res.status(404).json({
+  if(!text || !text.trim()) {
+    res.status(400).json({
       message: "missing required text field"
     })
   } else {
