@@ -8,7 +8,7 @@ server.use(express.json())
 
 server.use(logger)
 
-server.user('/api/users', usersRouter)
+server.use('/api/users', usersRouter)
 // global middlewares and the user's router need to be connected here
 
 server.get('/', (req, res) => {

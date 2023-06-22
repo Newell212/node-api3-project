@@ -40,7 +40,15 @@ function validateUser(req, res, next) {
 }
 
 function validatePost(req, res, next) {
-  // DO YOUR MAGIC
+  const { text } = req.body
+  if(!text || !text.time()) {
+    res.status(404).json({
+      message: "missing required text field"
+    })
+  } else {
+    req.text = text.trim()
+    next()
+  }
 }
 module.exports = {
   logger,
